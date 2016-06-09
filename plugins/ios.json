@@ -1,0 +1,43 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        },
+        "com.telerik.stripe": {
+            "API_KEY": "sk_test_GkOhF6DaQvjH73JQpe3mue5u",
+            "PACKAGE_NAME": "com.bcnapartmentrentals.bcnapp"
+        }
+    },
+    "dependent_plugins": {}
+}

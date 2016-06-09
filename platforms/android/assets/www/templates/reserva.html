@@ -1,0 +1,142 @@
+<ion-view cache-view="false" hide-nav-bar="false" view-title="Details booking">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear header-item" ng-click="goBack()">
+      <i class="fa fa-long-arrow-left fa-2x color-corporativo" aria-hidden="true"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content has-header="true" padding="'true'">
+    <div class="row" style="margin:0;">
+      <div class="col">
+        <img ng-src="img/props_hd/{{prop.idprop}}/{{prop.imagen}}"  style="height: auto; width: 50vw;margin-left: -10px;margin-top:-14px;"/>
+      </div>
+      <div class="col">
+        <strong style="color:#565a5c;">{{prop.nameprop}}</strong><br/>
+        {{prop.numhab}} bedrooms<br/>
+        <span ng-switch on="{{prop.estrellas}}">
+            <span ng-switch-when="1">
+              <img ng-src="img/estrella.png" style="width:12px;">
+            </span>
+            <span ng-switch-when="2">
+              <img ng-src="img/estrella.png" style="width:12px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+            </span>
+            <span ng-switch-when="3">
+              <img ng-src="img/estrella.png" style="width:12px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+            </span>
+            <span ng-switch-when="4">
+              <img ng-src="img/estrella.png" style="width:12px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+            </span>
+            <span ng-switch-when="5">
+              <img ng-src="img/estrella.png" style="width:12px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+            </span>
+            <span ng-switch-default></span>
+        </span>
+      </div>
+    </div>
+    <form name="formbooking" class="padding" ng-submit="makeStripePayment(reservation, card)">
+      <div class="list">
+        <input type="hidden" name="idprop" ng-model="reservation.idprop" value="{{prop.idprop}}" ng-init="reservation.idprop=prop.idprop">
+        <input type="hidden" name="nameprop" ng-model="reservation.nameprop" value="{{prop.idprop}}" ng-init="reservation.nameprop=prop.nameprop">
+
+        <label class="item item-input item-stacked-label padding">
+          {{'checkin' | translate}}:
+          <input type="date" ng-model="reservation.checkin" name="checkin" required ng-change="putvalueout(reservation)">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          {{'checkout' | translate}}:
+          <input type="date" ng-model="reservation.checkout" name="checkout" required>
+        </label>
+
+        <label class="item item-select item-input item-stacked-label padding">
+          {{'persons' | translate}}:
+          <select ng-model="reservation.persons" name="persons" required ng-change="calcprice(reservation,card)">
+            <option ng-repeat="person in npersons" value="{{person}}">{{person}}</option>
+          </select>
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          {{'price' | translate}}:
+          <input type="text" ng-model="reservation.price" name="price" placeholder="-" style="height:30px;border:1px solid grey; padding-left:10px" disabled="">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          {{'nameclient' | translate}}:
+          <input type="text" ng-model="reservation.name" name="namep" style="height:30px;border:1px solid grey; padding-left:10px" required="">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          {{'surnameclient' | translate}}:
+          <input type="text" ng-model="reservation.surname" name="surnamep" required="" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          {{'phoneclient' | translate}}:
+          <input type="tel" ng-model="reservation.phone" name="phone" required="" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          {{'addressclient' | translate}}:
+          <input type="text" ng-model="reservation.address" name="address" required="" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          {{'passportclient' | translate}}:
+          <input type="text" ng-model="reservation.passport" name="passport" required="" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          {{'emailclient' | translate}}:
+          <input type="email" ng-model="reservation.email" name="email" required="" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          Card Type:
+          <select ng-model="card.cardType" ng-options="type for type in [&apos;Visa&apos;, &apos;American Express&apos;, &apos;MasterCard&apos;]"></select>
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          Person Card name:
+          <input type="text" ng-model="card.person_name" name="personName" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          Charge Amount
+          <input type="text" ng-model="card.amount" name="price" disabled="" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+
+        <label class="item item-input item-stacked-label padding">
+          Card Number
+          <input type="text" ng-model="card.number" name="cardNumber" cc-number="" cc-type="card.cardType" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+        <label class="item item-input item-stacked-label padding">
+          Card CVC
+          <input type="text" ng-model="card.cvc" cc-type="cardNumber.$ccType" style="height:30px;border:1px solid grey; padding-left:10px">
+        </label>
+        <label class="item item-input item-stacked-label padding">
+          Expiration Date:
+          <div cc-exp="">
+            <input ng-model="card.exp_month" cc-exp-month="" style="height:30px;width:100px;border:1px solid grey; text-align:center" placeholder="month">
+            <input ng-model="card.exp_year" cc-exp-year="" style="height:30px;width:100px;border:1px solid grey; text-align:center" placeholder="year">
+          </div>
+        </label>
+
+        <label class="item item-checkbox checkbox-square">
+          <span class="checkbox">OK</span>
+          <input type="checkbox" ngModel="reservation.baccept" name="baccept" required>
+        </label>
+
+      </div>
+      <div class="padding">
+        <input class="button button-block button-positive" type="submit" name="submit"  ng-disabled="formbooking.$invalid" value="{{'submit' | translate}}">
+      </div>
+
+      <p ng-show="formbooking.cardNumber.$error.ccNumberType">That&apos;s not a valid {{card.cardType}}</p>
+      <p ng-show="formbooking.$invalid">Fill all fields to continue</p>
+
+      <!--pre style="font-size:smaller">{{formbooking}}</pre>
+      <hr>
+      <pre style="font-size:smaller">{{card | json}}</pre-->
+
+    </form>
+  </ion-content>
+</ion-view>

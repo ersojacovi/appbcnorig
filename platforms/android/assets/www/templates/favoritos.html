@@ -1,0 +1,33 @@
+<ion-view cache-view="false" hide-nav-bar="false" view-title="Favourites">
+  <ion-content has-header="true" padding="'false'">
+        <div style="text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);margin-bottom:-5px;" class="ciudad" ng-repeat="prop in favorites">
+            <a href="#/page1/propiedad/{{prop.id}}"><img ng-src="img/props_hd/{{prop.id}}/{{prop.imagen}}"  style="height: auto; width: 100vw;margin-left: -10px;margin-top:-14px;"/></a>
+            <div class="minpreciodiv">
+              <span class="minprecio">{{prop.minprecio}} </span><span class="euro">€ night</span>
+            </div>
+            <p class="portadatitle">
+              <img ng-src="img/nofavorits.png" class="button-nofav" ng-click="deleteFavorite(prop)"/>
+              <a href="#/page1/propiedad/{{prop.id}}" style="color: #565a5c;">{{prop.name}}</a><br/><span style="font-size:12px;color: #899094;">{{prop.numhab}} bedrooms</span>
+              <span ng-switch on="{{prop.estrellas}}">
+                  <span ng-switch-when="1">
+                    <img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+                  </span>
+                  <span ng-switch-when="2">
+                  <img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+                  </span>
+                  <span ng-switch-when="3">
+                    <img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+                  </span>
+                  <span ng-switch-when="4">
+                    <img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" width="12px">
+                  </span>
+                  <span ng-switch-when="5">
+                    <img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+                  </span>
+                  <span ng-switch-default></span>
+              </span>
+            </p>
+            <img ng-src="img/limit.jpg" style="height:1px;width: 100vw;margin-left: -10px;margin-top: -21px;"/>
+        </div>
+  </ion-content>
+</ion-view>

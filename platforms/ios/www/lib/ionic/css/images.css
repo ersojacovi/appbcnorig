@@ -1,0 +1,311 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, u, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, fieldset, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+{
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+
+.nombre-ciudad{
+    background: none repeat scroll 0 0 #FFFFFF;
+    opacity: 0.7;
+    top:60%;
+    left:5%;
+    position: absolute;
+    font-size: 1.5em;
+}
+
+.ciudad{
+    position:relative;
+
+}
+
+#maplaces {
+    height: 92%;
+    width: 100%;
+}
+
+#maprop {
+    height: 150px;
+    width: 100%;
+}
+
+.scroll {
+    height: 100%;
+}
+
+.full button {
+    background-color: red;
+    border-radius: 32px;
+    color: white;
+    cursor: not-allowed;
+}
+
+.oferta{
+  border: 3px #FF0000 dashed;
+  margin-bottom: 10px;
+}
+
+.oferta h2 {
+  font-family: fantasy;
+  font-weight: bolder;
+}
+
+p.portadatitle{
+  text-align:left;
+  margin-top: 15px;
+  margin-bottom:15px;
+}
+
+.tabs .tab-item .icon.bcnapp {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../../../img/bcnapp.jpg');
+  background-size:contain;
+}
+
+.button-fav, .button-nofav {
+  width: 45px;
+  z-index: 12 !important;
+  position: absolute !important;
+  bottom: 70px !important;
+  right: 10px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transition: 0.2s linear !important;
+  transition: 0.2s linear !important;
+  -webkit-transition-property: -webkit-transform, all !important;
+  transition-property: transform, all !important;
+}
+
+.button-fav-prop {
+  width: 45px;
+  z-index: 12 !important;
+  position: absolute !important;
+  bottom: 252px !important; !important;
+  right: 10px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transition: 0.2s linear !important;
+  transition: 0.2s linear !important;
+  -webkit-transition-property: -webkit-transform, all !important;
+  transition-property: transform, all !important;
+}
+
+.button-fav-rel{
+  width: 35px!important;
+  z-index: 12 !important;
+  position: absolute !important;
+  bottom: 53px !important;
+  right: 6px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transition: 0.2s linear !important;
+  transition: 0.2s linear !important;
+  -webkit-transition-property: -webkit-transform, all !important;
+  transition-property: transform, all !important;
+}
+
+.estrella{
+  background: #FFC900 !important;
+  color:white !important;
+  border-radius: 50%!important;
+  margin-right: 3px;
+}
+
+.button-fav:hover, .button-fav-prop:hover, .button-fav-rel:hover, .button-nofav:hover {
+  -webkit-transform: translate3d(0, -1px, 0) !important;
+  transform: translate3d(0, -1px, 0) !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4) !important;
+  background: #3498db !important;
+}
+
+
+.minpreciodiv {
+    color: white;
+    background: rgba(0,0,0,0.7);
+    width: 100px;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: -10px;
+    font-weight: bold;
+}
+
+.ubicaciondiv {
+    color: white;
+    background: rgba(0,0,0,0.28);
+    width: 100%;
+    position: absolute;
+    margin-top: -125px;
+    font-weight: bold;
+}
+
+
+
+.minpreciopropdiv {
+    color: white;
+    background: rgba(0,0,0,0.7);
+    width: 120px;
+    position: absolute;
+    margin-top: -107px;
+    font-weight: bold;
+    z-index: 100;
+    padding-left: 5px;
+}
+
+
+
+.minprecio, .minprecioprop, .ubicacionspan{
+  font-size: 1.7em;
+}
+
+
+.euro, .europrop{
+  width: 5px!important;
+  white-space: normal;
+}
+
+.euromin{
+  width: 5px!important;
+  white-space: normal;
+  font-size: 10px;
+}
+
+.fotosprop{
+  padding:0px!important;
+}
+
+.price_rel{
+  position: absolute;
+  bottom: 60px;
+  left: 6px;
+  padding-left: 4px;
+  width: 43%;
+  margin: 4px 0px 4px 0px;
+  background-color: black;
+  font-size: 1em;
+  color: white;
+  opacity: 0.8;
+}
+
+.propname_rel
+{
+  font-size: 0.85em;
+  margin-bottom: 0;
+}
+
+.swiper-container{
+      margin-bottom: 60px;
+}
+
+.swiper-slide{
+  background: #ffffff;
+  padding: 5px;
+}
+
+.calle{
+  text-align: center;
+  border: 1px solid;
+  position: relative;
+  top: -20px;
+  left: 10px;
+  width: 50%;
+  font-size: 11px;
+  z-index: 1000;
+  background: rgba(255,255,255,0.8);
+}
+
+.info{
+  vertical-align: top;
+  text-align: justify;
+  padding: 5px;
+}
+
+h2.fav{
+  font-size:0.8em;
+}
+
+/*Popup's classes
+.popup-head
+.popup-title
+.popup-body
+.popup-buttons
+*/
+
+.popup{
+  border-radius: 10px!important;
+}
+
+.popup-head{
+  text-align: center !important;
+}
+.popup-title {
+  color: #000 !important;
+  font-size:18px !important;
+}
+
+.popup-body{
+  font-size:16px !important;
+  text-align: center!important;
+  font-weight: bold!important;
+}
+
+.popup-body img{
+  width:100%!important;
+}
+
+.popup-buttons {
+  background: #3498db;
+  border-radius: 0 0 10px 10px!important;
+}
+
+.popup-buttons button {
+  border-color: transparent;
+  background-color: #3498db !important;
+  color: #fff;
+}
+
+.tabs-stable > .tabs, .tabs.tabs-stable
+{
+  background: white !important;
+}
+
+.relatedproperties
+{
+  background: #f9f9f9;
+  padding: 15px;
+}
+
+/* ********************************************** */
+
+.scroll, .angular-leaflet-map {
+  height: 100%;
+}
+
+.leaflet-bottom {
+  bottom : 10px;
+}
+
+
+.tab-nav{
+    border-top: 1px solid #ddd;
+}
+
+.gris{
+  color:#b4b4b4;
+}
+
+.color-corporativo{
+  color:#3498db;
+}
+
+/* ********************************************** */

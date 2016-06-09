@@ -1,0 +1,160 @@
+<ion-view cache-view="false" hide-nav-bar="false" view-title="">
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear header-item" ng-click="goBack()">
+      <i class="fa fa-long-arrow-left fa-2x color-corporativo" aria-hidden="true"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="shareAnywhere()"><i class="icon ion-ios-upload-outline color-corporativo"></i></button>
+    <!--button class="button" ng-click="shareViaTwitter('some message', null, 'http://blog.nraboy.com')"><i class="icon ion-social-twitter"></i></button-->
+  </ion-nav-buttons>
+  <ion-content has-header="true">
+    	<!-- *************************** -->
+		<!--script type="text/ng-template" id="myModalContent.html">
+			<div class="modal-header">
+		        <h4 class="modal-title">{{'reserva' | translate}} <strong>{{prop.nameprop}}</strong>!</h4>
+		    </div>
+		    <div class="modal-body">
+		    	<form ng-submit="ok(reservation)">
+			    	<label class="item item-input">
+	  					<span class="input-label">{{'checkin' | translate}}</span>
+	  					<input type="date" ng-model="reservation.checkin" required>
+					  </label>
+					  <label class="item item-input">
+	  					<span class="input-label">{{'checkout' | translate}}</span>
+	  					<input type="date" ng-model="reservation.checkout" required>
+					  </label>
+          <label class="item item-input">
+            <span class="input-label">{{'persons' | translate}}</span>
+            {{reservation.persons}}
+            <div class="range range-positive" >
+              <i class="icon ion-ios-people-outline"></i>
+              <input type="range" min="1" max="{{prop.maxpeople}}" value="1" step="1" ng-model="reservation.persons" required>
+              <i class="icon ion-ios-people"></i>
+            </div>
+          </label>
+
+					<input class="button button-block button-positive" type="submit" name="submit" value="{{'submit' | translate}}">
+				</form>
+				<div class="card">
+                    <div class="item item-text-wrap">
+                    	<b ng-bind="response"></b>
+                    </div>
+                </div>
+		    </div>
+		    <div class="modal-footer">
+		        <button class="btn btn-warning" type="button" ng-click="cancel()">{{'cancel' | translate}}</button>
+		    </div>
+		</script-->
+		<!-- *************************** -->
+    <div>
+			<!--uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+				<uib-slide ng-repeat="slide in slides" active="slide.active" class="fotosprop">
+					<img ng-src="{{slide.image}}" style="width:100%;padding:0px">
+				</uib-slide>
+			</uib-carousel-->
+      <ks-swiper-container initial-slide="2" speed="2000" loop="true" show-nav-buttons="false" slides-per-view="1" space-between="0" pagination-clickable="false"  on-ready="onReadySwiper(swiper)">
+        <ks-swiper-slide class="swiper-slide" ng-repeat="slide in slides">
+          <img ng-src="{{slide.image}}"/>
+        </ks-swiper-slide>
+      </ks-swiper-container>
+		</div>
+    <div class="minpreciopropdiv">
+      <span class="minprecioprop">{{prop.minprecio}} </span><span class="europrop">€ night</span>
+    </div>
+
+    <img ng-src="img/favorits.png" class="button-fav-prop" ng-click="addFavorite(prop)" ng-show="!isfavorite(prop.idprop)"/>
+
+    <h4 style="margin-left:10px; margin-top:-40px;margin-bottom: initial;color:#565a5c;">{{prop.nameprop}}</h4>
+		<div style="text-align:justify;padding:10px;">
+      <p style="margin-bottom:0px;font-size:14px;color:#899094;">{{prop.numhab}} bedrooms</p>
+      <span ng-switch on="{{prop.estrellas}}">
+          <span ng-switch-when="1">
+            <img ng-src="img/estrella.png" style="width:12px;">
+          </span>
+          <span ng-switch-when="2">
+            <img ng-src="img/estrella.png" style="width:12px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+          </span>
+          <span ng-switch-when="3">
+            <img ng-src="img/estrella.png" style="width:12px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+          </span>
+          <span ng-switch-when="4">
+            <img ng-src="img/estrella.png" style="width:12px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+          </span>
+          <span ng-switch-when="5">
+            <img ng-src="img/estrella.png" style="width:12px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;"><img ng-src="img/estrella.png" style="width:12px;margin-left:3px;">
+          </span>
+          <span ng-switch-default></span>
+      </span>
+      <hr style="margin-bottom:25px;"/>
+      <span style="margin-right:15px">
+        <i class="fa fa-users fa-2x gris" aria-hidden="true" style="margin-right:5px;"></i> {{prop.numpersonas}} persons
+      </span>
+      <span>
+        <i class="fa fa-bed fa-2x gris" aria-hidden="true" style="margin-right:5px;"></i> {{prop.numhab}} bedrooms
+      </span>
+      <hr style="margin-top:25px;"/>
+      <p><b style="color: #565a5c;">Business Description</b></p>
+      <p style="color:#899094;line-height: 1.7;">{{prop.description}}</p>
+      <hr/>
+      <p><b style="color: #565a5c;">Check in Times</b></p>
+      <p style="color:#899094;line-height: 1.7;">{{prop.checkintimes}}</p>
+      <hr/>
+      <span ng-repeat=" feature in imgamenities">
+        <img ng-src="{{feature.image}}" style="margin-bottom: 7px;"/>
+      </span>
+      <hr/>
+      <!--div id="maprop" data-tap-disabled="true"></div-->
+      <div data-tap-disabled="true">
+        <div id="maprop"></div>
+      </div>
+
+      <div class="calle">{{prop.calle}}</div>
+      <hr/>
+      <p><b style="color: #565a5c;">Additional Information</b></p>
+      <p style="color:#899094;line-height: 1.7;">{{prop.otherinfo}}</p>
+      <hr/>
+      <p><b style="color:#899094;">Related Apartments</b></p>
+      <div class="relatedproperties">
+        <ks-swiper-container initial-slide="2" speed="2000" loop="true" show-nav-buttons="false" slides-per-view="1.5" space-between="5" pagination-clickable="false"  on-ready="onReadySwiper(swiper)">
+          <ks-swiper-slide class="swiper-slide" ng-repeat="relprop in relprops">
+            <img ng-src="img/props_hd/{{relprop.idprop}}/{{relprop.imagen}}" width="100%">
+            <div class='price_rel'>
+              <span style="font-weight:bold;">{{relprop.minprecio}}</span> <span class="euromin">€ night</span>
+            </div>
+            <p class='propname_rel'>
+              <a href="#/propiedad/{{relprop.idprop}}" style="color:#565a5c;">
+                {{relprop.nameprop}}
+              </a><br/>
+              <span style="font-size:12px;color: #899094;">{{relprop.numhab}} bedrooms</span>
+            </p>
+            <span ng-switch on="{{relprop.estrellas}}">
+                <span ng-switch-when="1">
+                  <img ng-src="img/estrella.png" style="width:10px;margin-right:3px;">
+                </span>
+                <span ng-switch-when="2">
+                <img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;">
+                </span>
+                <span ng-switch-when="3">
+                  <img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;">
+                </span>
+                <span ng-switch-when="4">
+                  <img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" width="10px">
+                </span>
+                <span ng-switch-when="5">
+                  <img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;"><img ng-src="img/estrella.png" style="width:10px;margin-right:3px;">
+                </span>
+                <span ng-switch-default></span>
+            </span>
+          </ks-swiper-slide>
+        </ks-swiper-container>
+      </div>
+		</div>
+	</ion-content>
+  <div style="position: absolute; bottom: 39px; width: 100%">
+    <div style="text-align: center">
+      <a href="#/page1/reserva/{{prop.idprop}}" class="button button-full button-positive">{{'reserva' | translate}}</a>
+      <!--button type="button" class="button button-full button-positive" ng-click="open()">{{'reserva' | translate}}</button-->
+    </div>
+  </div>
+</ion-view>

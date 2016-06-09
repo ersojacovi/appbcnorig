@@ -1,0 +1,11 @@
+<ion-view cache-view="false"hide-nav-bar="true">
+  <ion-content padding="'false'">
+    <div style="text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);margin-bottom:-5px;" ng-repeat="location in locations">
+        <a href="#/page1/propsxubicacion/{{location.idubicacion}}"><img ng-src="http://www.bcnapartmentrentals.com/app/images/ubicaciones/{{location.imagenubicacion}}"  style="height: auto; width: 100vw;margin-left: -10px;margin-top:-14px;"/></a>
+        <div class="ubicaciondiv">
+          <span class="ubicacionspan">{{location.nombreubicacion}} </span>
+        </div>
+        <img ng-src="img/limit.jpg" style="height:1px;width: 100vw;margin-left: -10px;margin-top: -21px;"/>
+    </div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,63 @@
+<ion-view cache-view="false">
+    <ion-content padding="'false'">
+    	<!--h1>{{"hello_message" | translate}}</h1>
+        <h2>{{"goodbye_message" | translate}}</h2-->
+        <uib-accordion close-others="oneAtATime">
+        	<uib-accordion-group is-open="status.open1">
+      			<uib-accordion-heading>
+        			{{'un_dormitorio' | translate}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open1, 'glyphicon-chevron-right': !status.open1}"></i>
+      			</uib-accordion-heading>
+      			<ion-list>
+					<ion-item class="item-avatar" ng-repeat="prop in props" ng-if="prop.tipo == 5">
+						<img ng-src="img/props_hd/{{prop.idprop}}/{{prop.imagen}}"/>
+						<p style="white-space: pre-line;"><a href="#/page1/propiedad/{{prop.idprop}}" style="color:#565a5c;font-size: 1.2em;">{{prop.nameprop}}</a></p>
+					</ion-item>
+				</ion-list>
+    		</uib-accordion-group>
+    		<uib-accordion-group is-open="status.open2">
+      			<uib-accordion-heading>
+        			{{'dos_dormitorios' | translate}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open2, 'glyphicon-chevron-right': !status.open2}"></i>
+      			</uib-accordion-heading>
+      			<ion-list>
+					<ion-item class="item-avatar" ng-repeat="prop in props" ng-if="prop.tipo == 6">
+              <img ng-src="img/props_hd/{{prop.idprop}}/{{prop.imagen}}"/>
+					    <p style="white-space: pre-line;"><a href="#/page1/propiedad/{{prop.idprop}}" style="color:#565a5c;font-size: 1.2em;">{{prop.nameprop}}</a></p>
+					</ion-item>
+				</ion-list>
+    		</uib-accordion-group>
+    		<uib-accordion-group is-open="status.open3">
+      			<uib-accordion-heading>
+        			{{'tres_dormitorios' | translate}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open3, 'glyphicon-chevron-right': !status.open3}"></i>
+      			</uib-accordion-heading>
+      			<ion-list>
+					<ion-item class="item-avatar" ng-repeat="prop in props" ng-if="prop.tipo == 7">
+						<img ng-src="img/props_hd/{{prop.idprop}}/{{prop.imagen}}"/>
+						<p style="white-space: pre-line;"><a href="#/page1/propiedad/{{prop.idprop}}" style="color:#565a5c;font-size: 1.2em;">{{prop.nameprop}}</a></p>
+					</ion-item>
+				</ion-list>
+    		</uib-accordion-group>
+    		<uib-accordion-group is-open="status.open4">
+      			<uib-accordion-heading>
+        			{{'cuatro_dormitorios' | translate}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open4, 'glyphicon-chevron-right': !status.open4}"></i>
+      			</uib-accordion-heading>
+      			<ion-list>
+					<ion-item class="item-avatar" ng-repeat="prop in props" ng-if="prop.tipo == 8">
+						<img ng-src="img/props_hd/{{prop.idprop}}/{{prop.imagen}}"/>
+						<p style="white-space: pre-line;"><a href="#/page1/propiedad/{{prop.idprop}}" style="color:#565a5c;font-size: 1.2em;">{{prop.nameprop}}</a></p>
+					</ion-item>
+				</ion-list>
+    		</uib-accordion-group>
+    		<uib-accordion-group is-open="status.open5">
+      			<uib-accordion-heading>
+        			{{'cinco_dormitorios' | translate}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open5, 'glyphicon-chevron-right': !status.open5}"></i>
+      			</uib-accordion-heading>
+      			<ion-list>
+					<ion-item class="item-avatar" ng-repeat="prop in props" ng-if="prop.tipo == 9 || prop.tipo == 10">
+						<img ng-src="img/props_hd/{{prop.idprop}}/{{prop.imagen}}"/>
+						<p style="white-space: pre-line;"><a href="#/page1/propiedad/{{prop.idprop}}" style="color:#565a5c;font-size: 1.2em;">{{prop.nameprop}}</a></p>
+					</ion-item>
+				</ion-list>
+    		</uib-accordion-group>
+    	</uib-acordion>
+	</ion-content>
+</ion-view>

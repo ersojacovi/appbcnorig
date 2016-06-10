@@ -3,7 +3,7 @@ angular.module('app.controllers', ['ionic','ngCordova','ui.bootstrap','jett.ioni
 /* ********************* */
 /* CONTROLADOR DE INICIO */
 /* ********************* */
-.controller('inicioCtrl', function($scope,$translate,PortadaService,PropService,$timeout, $ionicFilterBar,FavoritesService,$ionicPopup) {
+.controller('inicioCtrl', function($scope, $translate, PortadaService, PropService, $timeout,  $ionicFilterBar, FavoritesService, $ionicPopup) {
 
   console.log("INICIO");
 

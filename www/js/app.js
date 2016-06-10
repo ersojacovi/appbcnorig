@@ -163,16 +163,27 @@ var exampleapp=angular.module('app', ['ionic', 'app.controllers', 'app.routes', 
 
 .run(function($ionicPlatform, $translate,$window) {
   $ionicPlatform.ready(function() {
+    if (ionic.Platform.isIOS())
+    {
+      ionic.Platform.fullScreen();
+      if ($window.StatusBar) {
+        return StatusBar.hide();
+      }
+    }
+    else {
+      if($window.StatusBar) {
+        // org.apache.cordova.statusbar required
+        StatusBar.styleDefault();
+      }
+    }
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if($window.cordova && $window.cordova.plugins.Keyboard) {
       $window.cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       $window.cordova.plugins.Keyboard.disableScroll(true);
     }
-    if($window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
+
+
     //console.log("window.stripe ", window.stripe);
     //alert (JSON.stringify(window.stripe));
 
